@@ -1,0 +1,103 @@
+<head>
+<link rel="stylesheet" href="../../../css/edit_bigtweets.css">
+<link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+	<div id="conteneur">
+		<div id="entête" style="opacity: 1; display: inline;">
+			<nav class="navbar navbar-default navbar-fixed">
+				<div class="container-fluid">
+					<div class="navbar-header">Modifier un bigtweet</div>
+					<span><img alt="" src="../../../images/bt.jpg" /> </span>
+					<div class="pull-right">
+					<img alt="" src="../../../images/user-blue_25325.png" /> 
+						<a href="/" class="btn btn-primary" role="button">Se déconnecter <span class="glyphicon glyphicon-log-out"></span></a>
+					</div>
+				</div>
+			</nav>
+			<span><h3> Mon profil</h3></span>
+		</div>
+	</div>
+
+
+
+     <div class="col-md-4">
+   				 <div class="pull-left">
+									<table>            
+            <form method="post" action="/bigtweets/edit/<%=data[0].ID%>">
+                 <tr>
+				 <div class="pull-left" style="font-size: 20px;">
+            	<span class="label label-info">Modification du bigtweet</span>
+				</div><br><br>
+		
+                    <textarea maxlength="1000" rows="10" cols="65" type="text" name="Message" required onkeyup="reste(this.value);"><%=data[0].Message%> </textarea><br />
+                    <div id="caracteresRestants"><span id="caracteres">1000</span> caractères restants </div>
+                    <script type="text/javascript">
+                        function reste(texte)
+                        {
+                        var restants=1000-texte.length;
+                        document.getElementById('caracteres').innerHTML=restants;
+                        }
+                    </script>
+                                                    
+				</tr>
+
+
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        <input type="submit" name="submit" value="Enregistrer">
+						<input type="button" name="cancel" value="Annuler" class="cancel" onClick="cancelAdd()"> </br>
+                        <input type="button" name="delete" value="Supprimer" class="delete" onclick="pop()">
+					</td>
+                 </tr>
+                             </form>
+
+                </table>
+            
+        </div>
+		        </div>
+
+			<div>
+				<h2> Rejoignez Paris-Saclay </h2>
+
+				<a href="https://www.universite-paris-saclay.fr/fr" target="_blank"> <img class="parissaclay" alt="" src="../../../images/ps.jpg"/> </a>
+
+			</div>
+
+<script type="text/javascript">
+function cancelAdd(){
+    
+    window.location.href = '/bigtweets';
+}
+
+function pop() { 
+	window.open('popup.ejs','height=50px,width=50px'); 
+} 
+
+function deleteBigtweet(){
+   window.location.href = "/supprimer";
+}
+</script>
+
+        
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h5> BIGTWIT is developped by Aminata CISSE, Jenourthika JEYAKUMAR and Thiepthy KANAGASABAI</h5>
+			   
+			   <h6 class="pull-right"> Master 1 MIAGE 2016/2017</h6>
+			  
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
