@@ -1,0 +1,107 @@
+<html>
+<head>
+<link rel="stylesheet" href="../../../css/bigtweets.css">
+<link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+	<div id="conteneur">
+		<div id="entête" style="opacity: 1; display: inline";>
+			<nav class="navbar navbar-default navbar-fixed">
+				<div class="container-fluid">
+					<div class="navbar-header">BIGTWIT</div>
+					<span><img alt="" src="../../../images/bt.jpg" /> </span>
+					<div class="pull-right">
+						<img alt="" src="../../../images/user-blue_25325.png" /> <a
+							href="/" class="btn btn-primary" role="button">Se déconnecter
+							<span class="glyphicon glyphicon-log-out"></span>
+						</a>
+					</div>
+				</div>
+			</nav>
+			<span><h3>Mon profil</h3></span>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="pull-center">
+				<span>
+					<div class="panel panel-default">
+						<div class="panel-heading">Mes bigtweets</div>
+						<div class="panel-body" style="overflow-y: scroll;">
+							<ul class="nav nav-pills nav-stacked"">
+								
+							</ul>
+						</div>
+					</div>
+				</span>
+			</div>
+		</div>
+
+
+		<div class="col-md-4">
+			<div class="pull-left">
+				<div class="panel panel-info">
+					<div class="panel-heading">Ecrire un bigtweet</div>
+					<div class="col-md-4">
+						<table>
+
+							<form method="post" action="/bigtweets/add">
+								<tr>
+									<textarea class="panel panel-info" maxlength="1000" rows="12"
+										cols="41" type="text" name="Message" required
+										onkeyup="reste(this.value);"></textarea>
+									<br />
+									<div id="caracteresRestants">
+										<span id="caracteres">1000</span> caractères restants
+									</div>
+									<script type="text/javascript">
+													function reste(texte)
+													{
+														var restants=1000-texte.length;
+														document.getElementById('caracteres').innerHTML=restants;
+													}
+												</script>
+
+								</tr>
+								&nbsp;
+								<tr>
+
+									<th><input type="submit" name="submit"
+										class="btn btn-info" value="Enregistrer"></th>
+									<th><input type="reset" name="cancel" class="cancel"
+										value="Annuler" onClick="cancelAdd()"></th>
+								</tr>
+							</form>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h5>BIGTWIT is developped by Aminata CISSE, Jenourthika
+						JEYAKUMAR and Thiepthy KANAGASABAI</h5>
+					</br>
+				</div>
+
+				<div class="pull-right">
+					<h5>Master 1 MIAGE 2016/2017</h5>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html
