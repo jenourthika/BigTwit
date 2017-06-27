@@ -1,0 +1,24 @@
+<html>
+
+<body>
+
+<h1> Confirmer la suppression: </h1>
+
+			<input type="button" name="cancel" value="Annuler" class="cancel" onClick="cancelDelete()">
+			<input type="button" name="cancel" value="Annuler" class="cancel" onClick="deleteBigtweet()">
+
+
+<script type="text/javascript">
+function cancelDelete(){
+    
+    window.location.href = "/bigtweets/edit/<%=data[0].ID%>";
+}
+
+function deleteBigtweet(){
+   window.location.href = "/bigtweets/delete/<%=data[0].ID%>";
+}
+</script>
+
+</body>
+
+</html>

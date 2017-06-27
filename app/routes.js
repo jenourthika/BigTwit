@@ -71,7 +71,7 @@ app.get('/auth/twitter/callback', function(req, res, next) {
       oauth_data.token,
       oauth_data.token_secret,
       oauth_data.verifier,
-      function Display(error, oauth_access_token, oauth_access_token_secret, results) {
+      function(error, oauth_access_token, oauth_access_token_secret, results) {
         if (error) {
           console.log(error);
           res.send("Authentication Failure!");
@@ -79,15 +79,7 @@ app.get('/auth/twitter/callback', function(req, res, next) {
         else {
           req.session.oauth.access_token = oauth_access_token;
           req.session.oauth.access_token_secret = oauth_access_token_secret;
-
-          console.log(results.screen_name);
-          var user_name = results.screen_name;
-      
-          /*s = "<body>"+user_name+"</body>";
-           var l= elem.innerHTML;
-           l = s;*/
-          //console.log(req.session.oauth.screen_name);
-          
+          console.log(results, req.session.oauth);
          res.render('../views/pro');
          //res.redirect('/profile'); // You might actually want to redirect!
         }

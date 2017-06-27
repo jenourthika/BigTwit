@@ -1,10 +1,8 @@
 <head>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../../../css/bigtweets.css">
+<link rel="stylesheet" href="../../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -14,172 +12,115 @@
 			<nav class="navbar navbar-default navbar-fixed">
 				<div class="container-fluid">
 					<div class="navbar-header">BIGTWIT</div>
+					<span><img alt="" src="../../../images/bt.jpg" /> </span>
 					<div class="pull-right">
-						<img alt="" src="../../../images/bt.jpg" /> 
-						<a href="/" class="btn btn-primary" role="button">Se déconnecter</a>
+						<img alt="" src="../../../images/user-blue_25325.png" /> <a
+							href="/" class="btn btn-primary" role="button">Se déconnecter
+							<span class="glyphicon glyphicon-log-out"></span>
+						</a>
 					</div>
 				</div>
 			</nav>
+			<span><h3>Mon profil</h3></span>
 		</div>
 	</div>
 
 
-        <div class="row">
-				<div class="col-md-8">
-					<div class="pull-center">
-						<span>
-							<div class="panel panel-default">
-								<div class="panel-heading">Mes bigtweets</div>
-								<div class="panel-body">
-									<ul class="nav nav-pills nav-stacked"">
-                                    	<table>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="pull-center">
+				<span>
+					<div class="panel panel-default">
+						<div class="panel-heading">Mes bigtweets</div>
+						<div class="panel-body" style="overflow-y: scroll;">
+							<ul class="nav nav-pills nav-stacked"">
+								<table>
 
-                <% if(data.length){              
-                 for(var i = 0;i < data.length;i++) { %>
-				<tr>
-                    <th class="mess" width="380px"><%=data[i].Message%></th>
-                    <th class="dahe" width="250px"" ><%=data[i].DateHeure%></th>
-                    <th >
-                        <a class="a-inside edit" href="../bigtweets/edit/<%=data[i].ID%>">Modifier</a>
-                        <a class="a-inside delete" href="../bigtweets/delete/<%=data[i].ID%>">Supprimer</a>   
-                    </th>
-                </tr>
-            <% }
-             }else{ %>
-                 <tr>
-                    <td colspan="3">No user</td>
-                 </tr>
-            <% } %>
-                                    	</table>
-									</ul>
-								</div>
-							</div>
-						</span>
+									<% if(data.length){ for(var i = 0;i < data.length;i++) { %>
+									<tr>
+										<th class="mess" width="350px"><%=data[i].Message%></th>
+										<th class="dahe" width="250px"" ><%=data[i].DateHeure%></th>
+										<th><a class="a-inside see"
+											href="../bigtweets/see/<%=data[i].ID%>">Lire</a> <a
+											class="a-inside edit"
+											href="../bigtweets/edit/<%=data[i].ID%>">Modifier</a><span
+											class="glyphicon glyphicon-pencil"></span>
+										</p> <a class="a-inside delete"
+											href="../bigtweets/delete/<%=data[i].ID%>">Supprimer</a></th>
+									</tr>
+
+									<% } }else{ %>
+									<tr>
+										<td colspan="3">No user</td>
+									</tr>
+									<% } %>
+								</table>
+							</ul>
+						</div>
 					</div>
-				</div>
-		 
-		 
-		 <div class="col-md-4">
-   				 <div class="pull-left">
-   						 <div class="panel panel-info">
-   							 <div class="panel-heading">Ecrire un bigtweet</div>
-   								 <div class="col-md-4">
-									<table>
-   					 					<form method="post" action="/bigtweets/add">
-											<tr>
-												<textarea class="panel panel-info"maxlength="1000" rows="10" cols="30" type="text" name="Message" required onkeyup="reste(this.value);"> </textarea><br />
-												<div id="caracteresRestants"><span id="caracteres">1000</span> caractères restants </div>
-												<script type="text/javascript">
+				</span>
+			</div>
+		</div>
+
+
+		<div class="col-md-4">
+			<div class="pull-left">
+				<div class="panel panel-info">
+					<div class="panel-heading">Ecrire un bigtweet</div>
+					<div class="col-md-4">
+						<table>
+
+							<form method="post" action="/bigtweets/add">
+								<tr>
+									<textarea class="panel panel-info" maxlength="1000" rows="12"
+										cols="41" type="text" name="Message" required
+										onkeyup="reste(this.value);"></textarea>
+									<br />
+									<div id="caracteresRestants">
+										<span id="caracteres">1000</span> caractères restants
+									</div>
+									<script type="text/javascript">
 													function reste(texte)
 													{
 														var restants=1000-texte.length;
 														document.getElementById('caracteres').innerHTML=restants;
 													}
 												</script>
-												
-											</tr>
-											&nbsp;
-											<tr>
-                       							<th><input type="submit" name="submit" class="btn btn-info" value="Enregistrer"></th>
-                       							<th><input type="reset" name="cancel" class="cancel" value="Annuler" onClick="cancelAdd()"></th>
-											</tr>
-   					 					</form>
-									</table>
-   								 </div>
-   							 </div>
-   						 </div>
-   				 </div>
-		 </div>
-       
-	    </div>
-				
-					
-	
-<style>
-body {
-	font-size: 2em; background-color;
-	font-family: 'Cabin', Helvetica, Arial, sans-serif;
-	font-weight: 500;
-	color: #7f7f7f;
-	height: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	width: 1200px;
-	min-height: 100%;
-}
-.panel  panel-default{ /*float: rigth;*/
-	width: 600px;
-	font-size: 80%;
-	position: relative;
-	top: -10px;
-	border-radius: 8px;
-	padding-bottom: 5px;
-}
-.panel panel-info {
-	width: 400px;
-	border-radius: 8px;
-	padding-bottom: 5px;
-	margin-left: 200px;
-	margin-right: 200px;
-}
-.pull-left {
-	width: 380px;
-	position: relative;
-	float: left;
-}
-.panel panel-primary {
-	position: relative;
-	float: right;
-}
-img {
-	width: 80px;
-	height: 80px;
-}
 
-#caracteresRestants{
-	width: 150px;
-	font-size:small;
-	color: red;
-}
+								</tr>
+								&nbsp;
+								<tr>
 
-.cancel{
-    background-color:#D23641;color:#fff;
-    border:1px solid #d32132;color:#fff;
-    padding:8px 35px;font-weight:bold;
-}
+									<th><input type="submit" name="submit"
+										class="btn btn-info" value="Enregistrer"></th>
+									<th><input type="reset" name="cancel" class="cancel"
+										value="Annuler" onClick="cancelAdd()"></th>
+								</tr>
+							</form>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-input[type="submit"]{
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h5>BIGTWIT is developped by Aminata CISSE, Jenourthika
+						JEYAKUMAR and Thiepthy KANAGASABAI</h5>
+					</br>
+				</div>
 
-    border:1px solid #6599FF;color:#fff;
-    padding:8px 35px;font-weight:bold;
-    background:#6599FF;
-}
+				<div class="pull-right">
+					<h5>Master 1 MIAGE 2016/2017</h5>
+				</div>
 
+			</div>
+		</div>
+	</footer>
 
-.a-inside.edit{color:#6599FF;font-size: 12px;}
-.a-inside.delete{color:#d32132;font-size: 12px;}
-
-th{
-	font-size: 15px;
-}
-
-.navbar-header{
-	    color: blue;
-font-size: xx-large;
-font-family:'Times New Roman', Times, serif;
-}
-
-.mess{
-		font-family:cursive;
-
-}
-
-.dahe{
-			font-family:"Lucida Console", Courier, monospace;
-				font-size: 12px;
-
-}
-</style>
 </body>
+</html
