@@ -4,20 +4,33 @@ body {
 	font-weight: 500;
 	color: #7f7f7f;
 	height: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	width: 1200px;
+	text-align: center;
+
+	 margin: 0; /* pour éviter les marges */
+	width: 1450px;
 	min-height: 100%;
 }
-.panel  panel-default{ float: rigth;
-	width: 600px;
+.panel  panel-default{ /*float: rigth;*/
+	width:40px;
 	font-size: 80%;
 	position: relative;
 	top: -10px;
 	border-radius: 8px;
 	padding-bottom: 5px;
+}
+.panel-default {
+    position: relative; 
+    height: 450px;
+    width: 800px;
+    border:solid,1px;
+}
+.panel-body {
+    font-size: 1em;
+    height: 350px;
+}
+	table {
+    /* border-collapse: collapse;*/
+    width: 100%;
 }
 .panel panel-info {
 	width: 400px;
@@ -27,7 +40,7 @@ body {
 	margin-right: 200px;
 }
 .pull-left {
-	width: 1000px;
+	width: 380px;
 	position: relative;
 	float: left;
 }
@@ -37,7 +50,12 @@ body {
 }
 img {
 	width: 80px;
-	height: 80px;
+	/*height: 80px;
+	text-align: center;
+	width: 300px;*/
+    display: inline;
+    /*margin: auto;*/
+    vertical-align: center;
 }
 
 #caracteresRestants{
@@ -57,18 +75,21 @@ input[type="submit"]{
     border:1px solid #6599FF;color:#fff;
     padding:8px 35px;font-weight:bold;
     background:#6599FF;
+	margin: 10px 50% 10px 10px;
 }
 
 
 .a-inside.edit{color:#6599FF;font-size: 12px;}
 .a-inside.delete{color:#d32132;font-size: 12px;}
+.a-inside.see{color:black;font-size: 12px;}
+
 
 th{
 	font-size: 15px;
 }
 
 .navbar-header{
-	    color: blue;
+color: blue;
 font-size: xx-large;
 font-family:'Times New Roman', Times, serif;
 }
@@ -83,9 +104,18 @@ font-family:'Times New Roman', Times, serif;
 				font-size: 12px;
 
 }
-
-.parissaclay{
-	width: 250px;
-	height: 150px;
-		float: right;
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background:#e6eeff;
+    color: #000;
+}
+.cancel{
+	margin: 10px 50% 10px 40%;
+}
+h3{
+	text-align: center;
+	font-size: 14px;
 }

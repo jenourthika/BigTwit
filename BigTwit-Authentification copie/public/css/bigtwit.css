@@ -11,7 +11,7 @@ body {
 	width: 1200px;
 	min-height: 100%;
 }
-.panel  panel-default{ float: rigth;
+.panel  panel-default{ /*float: rigth;
 	width: 600px;
 	font-size: 80%;
 	position: relative;
@@ -88,4 +88,3 @@ font-family:'Times New Roman', Times, serif;
 	width: 250px;
 	height: 150px;
 		float: right;
-}
